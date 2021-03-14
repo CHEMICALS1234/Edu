@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=divice-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=divice-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap"
+      rel="stylesheet"
+    />
     <title>Exam</title>
-    <script src="https://kit.fontawesome.com/542c8876f2.js" crossorigin="anonymous"></script>
-    <!-- <script src="./main.js" defer></script> -->
+    <script
+      src="https://kit.fontawesome.com/542c8876f2.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
+
   <body>
-  
+    <script src="./main.js" async></script>
     <nav class="navbar">
       <div class="navbar-logo">
         <i class="fas fa-paragraph"></i>
@@ -32,15 +40,28 @@
       <a href="#" class="navbar-toggle">
         <i class="fas fa-bars"></i>
       </a>
-
     </nav>
 
-    <div class="testbox">
+    <!-- <div class="testbox">
       <div class="testbox-main"></div>
       <div class="testbox-probnum"></div>
       <div class="testbox-answer"></div>
       <div class="testbox-move"></div>
-    </div>
+    </div> -->
 
+    <div class="img-container">
+      <p class="img-number">문제 1.</p>
+      <i class="fas fa-arrow-left" id="prevBtn"></i>
+      <i class="fas fa-arrow-right" id="nextBtn"></i>
+      <div class="img-slide">
+        <!-- <img src="./assets/img-5.png" id="lastClone" alt="" /> -->
+        <img src="./assets/img-1.png" alt="" />
+        <img src="./assets/img-2.png" alt="" />
+        <img src="./assets/img-3.png" alt="" />
+        <img src="./assets/img-4.png" alt="" />
+        <img src="./assets/img-5.png" alt="" />
+        <!-- <img src="./assets/img-1.png" id="firstClone" alt="" /> -->
+      </div>
+    </div>
   </body>
 </html>
