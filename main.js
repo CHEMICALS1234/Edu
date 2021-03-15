@@ -29,21 +29,22 @@ const imgNumModify = () => {
 };
 
 //Page move motion
-nextBtn.addEventListener('click', () => {
+
+const nextPageMove = () => {
   if (counter >= imgImages.length - 1) return;
-  imgSlide.style.transition = 'transform 0.4s ease-in-out';
   counter++;
   imgSlide.style.transform = 'translateX(' + -size * counter + 'px)';
   imgNumModify();
-});
+};
+// nextBtn.addEventListener('click', () => {});
 
-prevBtn.addEventListener('click', () => {
-  if (counter <= 0) return;
-  imgSlide.style.transition = 'transform 0.4s ease-in-out';
-  counter--;
-  imgSlide.style.transform = 'translateX(' + -size * counter + 'px)';
-  imgNumModify();
-});
+// prevBtn.addEventListener('click', () => {
+//   if (counter <= 0) return;
+//   imgSlide.style.transition = 'transform 0.4s ease-in-out';
+//   counter--;
+//   imgSlide.style.transform = 'translateX(' + -size * counter + 'px)';
+//   imgNumModify();
+// });
 
 // submit onClick
 const answerInput = document.querySelector('.answer-input');
@@ -56,8 +57,7 @@ const answerObj = {
 submitBtn.addEventListener('click', (e) => {
   e.preventDefault();
   answerObj.answersArr[counter] = objConstuctor(counter, answerInput.value);
-
-  console.log(answerObj.answersArr);
+  nextPageMove();
 });
 
 // object constructor
