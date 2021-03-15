@@ -14,28 +14,9 @@ toggleBtn.addEventListener('click', () => {
 const imgSlide = document.querySelector('.img-slide');
 const imgImages = document.querySelectorAll('.img-slide img');
 
-//prev, next buttons
-const prevBtn = document.querySelector('#prevBtn');
-const nextBtn = document.querySelector('#nextBtn');
-
 //counter
 let counter = 0;
 const size = imgImages[0].clientWidth;
-
-// Image number modify
-const imgNumModify = () => {
-  document.querySelector('.img-number').innerHTML =
-    '문제 ' + (counter + 1) + '.';
-};
-
-//Page move motion
-const pageMove = (moveTo) => {
-  // if (counter <= 0) return;
-  if (counter >= imgImages.length - 1) return;
-  counter = moveTo;
-  imgSlide.style.transform = 'translateX(' + -size * counter + 'px)';
-  imgNumModify();
-};
 
 // submit onClick
 const answerInput = document.querySelector('.answer-input');
@@ -45,26 +26,65 @@ const answerObj = {
   answersArr: [],
 };
 
-submitBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  answerObj.answersArr[counter] = objConstuctor(counter, answerInput.value);
-  pageMove(counter + 1);
-});
+// problem Button click event
+const probBtn = document.querySelectorAll('.probBtn');
+
+// Image number modify
+const imgNumModify = () => {
+  document.querySelector('.img-number').innerHTML =
+    '문제 ' + (counter + 1) + '.';
+};
 
 // object constructor
-function objConstuctor(problemIndex, problemAnswerValue) {
+const objConstuctor = (problemIndex, problemAnswerValue) => {
   return {
     problemIndex,
     problemAnswerValue,
   };
-}
+};
 
-// problem Button click event
-const probBtn = document.querySelectorAll('.probBtn');
+const probBtnColorizer = () => {
+  //check answered problems
+  for (let i = 0; i < 20; i++) {
+    // console.log(answerObj.answersArr[i].problemAnswerValue === '');
+    let x;
+    try {
+      x = answerObj.answersArr[i].problemAnswerValue === '';
+    } catch (error) {
+      x = true;
+    }
+    if (x) {
+      probBtn[i].style.backgroundColor = 'var(--button-color)';
+      probBtn[i].style.color = '#000000';
+    } else {
+      probBtn[i].style.backgroundColor = 'var(--color-light-blue)';
+      probBtn[i].style.color = '#000000';
+    }
+  }
+  probBtn[counter].style.backgroundColor = 'var(--color-blue)';
+  probBtn[counter].style.color = '#ffffff';
+};
+
+//Page move motion
+const pageMove = (moveTo) => {
+  if (moveTo > imgImages.length - 1) return;
+  counter = moveTo;
+  imgSlide.style.transform = 'translateX(' + -size * counter + 'px)';
+  probBtnColorizer();
+  imgNumModify();
+};
 
 probBtn.forEach((buttons, index) => {
   buttons.addEventListener('click', () => {
-    // console.log(index);
     pageMove(index);
   });
 });
+
+submitBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  answerObj.answersArr[counter] = objConstuctor(counter, answerInput.value);
+  pageMove(counter + 1);
+  console.log(answerObj.answersArr);
+});
+
+probBtnColorizer();
