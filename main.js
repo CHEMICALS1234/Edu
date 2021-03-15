@@ -29,22 +29,13 @@ const imgNumModify = () => {
 };
 
 //Page move motion
-
-const nextPageMove = () => {
+const pageMove = (moveTo) => {
+  // if (counter <= 0) return;
   if (counter >= imgImages.length - 1) return;
-  counter++;
+  counter = moveTo;
   imgSlide.style.transform = 'translateX(' + -size * counter + 'px)';
   imgNumModify();
 };
-// nextBtn.addEventListener('click', () => {});
-
-// prevBtn.addEventListener('click', () => {
-//   if (counter <= 0) return;
-//   imgSlide.style.transition = 'transform 0.4s ease-in-out';
-//   counter--;
-//   imgSlide.style.transform = 'translateX(' + -size * counter + 'px)';
-//   imgNumModify();
-// });
 
 // submit onClick
 const answerInput = document.querySelector('.answer-input');
@@ -57,7 +48,7 @@ const answerObj = {
 submitBtn.addEventListener('click', (e) => {
   e.preventDefault();
   answerObj.answersArr[counter] = objConstuctor(counter, answerInput.value);
-  nextPageMove();
+  pageMove(counter + 1);
 });
 
 // object constructor
@@ -67,3 +58,13 @@ function objConstuctor(problemIndex, problemAnswerValue) {
     problemAnswerValue,
   };
 }
+
+// problem Button click event
+const probBtn = document.querySelectorAll('.probBtn');
+
+probBtn.forEach((buttons, index) => {
+  buttons.addEventListener('click', () => {
+    // console.log(index);
+    pageMove(index);
+  });
+});
