@@ -11,7 +11,6 @@ toggleBtn.addEventListener('click', () => {
 });
 
 //img
-
 const imgSlide = document.querySelector('.img-slide');
 const imgImages = document.querySelectorAll('.img-slide img');
 
@@ -29,7 +28,7 @@ const imgNumModify = () => {
     '문제 ' + (counter + 1) + '.';
 };
 
-//Button Listeners
+//Page move motion
 nextBtn.addEventListener('click', () => {
   if (counter >= imgImages.length - 1) return;
   imgSlide.style.transition = 'transform 0.4s ease-in-out';
@@ -46,28 +45,25 @@ prevBtn.addEventListener('click', () => {
   imgNumModify();
 });
 
-imgSlide.addEventListener('transitionend', () => {
-  if (imgImages[counter].id === 'lastClone') {
-    imgSlide.style.transition = 'none';
-    // console.log('none');
-    counter = imgImages.length - 2;
-    imgSlide.style.transform = 'translateX(' + -size * counter + 'px)';
-  }
-  if (imgImages[counter].id === 'firstClone') {
-    imgSlide.style.transition = 'none';
-    // console.log('none');
-    counter = imgImages.length - counter;
-    imgSlide.style.transform = 'translateX(' + -size * counter + 'px)';
-  }
-});
-
 // submit onClick
 const answerInput = document.querySelector('.answer-input');
 const submitBtn = document.querySelector('#submitBtn');
 
-let readValue = null;
+const answerObj = {
+  answersArr: [],
+};
 
 submitBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  console.log(answerInput.value);
+  answerObj.answersArr[counter] = objConstuctor(counter, answerInput.value);
+
+  console.log(answerObj.answersArr);
 });
+
+// object constructor
+function objConstuctor(problemIndex, problemAnswerValue) {
+  return {
+    problemIndex,
+    problemAnswerValue,
+  };
+}
