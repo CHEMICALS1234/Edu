@@ -29,6 +29,17 @@ const answerObj = {
 // problem Button click event
 const probBtn = document.querySelectorAll('.probBtn');
 
+// timer
+const timer = document.querySelector('.timer');
+let time = 3000;
+
+setInterval(() => {
+  let minute = parseInt(time / 60);
+  let second = time % 60;
+  timer.innerHTML = `남은시간 : ${minute}분 ${second}초`;
+  time--;
+}, 1000);
+
 // Image number modify
 const imgNumModify = () => {
   document.querySelector('.img-number').innerHTML =

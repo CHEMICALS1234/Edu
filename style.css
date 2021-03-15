@@ -91,7 +91,6 @@ a {
 
 .img-number {
   margin: 0;
-  font-family: 'Noto Sans KR', sans-serif;
   font-size: 30px;
 }
 
@@ -101,6 +100,12 @@ a {
   align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.number-time {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .probBtn {
@@ -122,8 +127,6 @@ a {
 .answer-text {
   margin: 0;
   padding-right: 8px;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-size: 30px;
 }
 
 .answer-input {
