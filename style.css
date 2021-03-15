@@ -11,6 +11,7 @@
 }
 
 * {
+  font-family: 'Noto Sans KR', sans-serif;
   box-sizing: border-box;
 }
 
@@ -127,7 +128,7 @@ a {
 
 .answer-input {
   width: 50%;
-  font-size: 2rem;
+  font-size: 1.6rem;
   border: none;
   background-color: var(--button-color);
   color: black;
