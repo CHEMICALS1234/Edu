@@ -1,7 +1,9 @@
 :root{
   --text-color: #ffffff;
   --navbar-background-color: #333333;
-  --accent-color: #0066ff;
+  --background-color: #ffffff;
+  --accent-color: rgb(0, 255, 157);
+  --button-color: #bbbbbb;
 }
 
 * {
@@ -10,6 +12,7 @@
 
 body {
   margin: 0;
+  background-color: var(--background-color);
 }
 
 a {
@@ -32,7 +35,7 @@ a {
 
 .navbar-logo i {
   color: var(--accent-color);
-  padding: 8px 24px;
+  padding: 8px 12px;
 }
 
 .navbar-list {
@@ -72,7 +75,6 @@ a {
   margin: auto;
   padding-top: 20px;
   overflow: hidden;
-  
 }
 
 .img-slide{
@@ -101,8 +103,29 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #bbbbbb;
+  background-color: var(--button-color);
   /* border: 1px solid black; */
+}
+
+.answer {
+  padding-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.answer-input{
+  width: 50%;
+  font-size: 2rem;
+  border: none;
+  background-color: var(--button-color);
+  color: black;
+}
+
+.answer i{
+  color: black;
+  font-size: 2rem;
+  padding: 0.2rem;
+  background-color: var(--button-color);
 }
 
 #prevBtn{

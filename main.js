@@ -22,16 +22,12 @@ const nextBtn = document.querySelector('#nextBtn');
 //counter
 let counter = 0;
 const size = imgImages[0].clientWidth;
-console.log(size);
 
 // Image number modify
 const imgNumModify = () => {
   document.querySelector('.img-number').innerHTML =
     '문제 ' + (counter + 1) + '.';
 };
-
-// initial transform
-// imgSlide.style.transform = 'translateX(' + -size * counter + 'px)';
 
 //Button Listeners
 nextBtn.addEventListener('click', () => {
@@ -63,4 +59,15 @@ imgSlide.addEventListener('transitionend', () => {
     counter = imgImages.length - counter;
     imgSlide.style.transform = 'translateX(' + -size * counter + 'px)';
   }
+});
+
+// submit onClick
+const answerInput = document.querySelector('.answer-input');
+const submitBtn = document.querySelector('#submitBtn');
+
+let readValue = null;
+
+submitBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  console.log(answerInput.value);
 });
