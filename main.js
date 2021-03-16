@@ -16,7 +16,7 @@ const imgImages = document.querySelectorAll('.img-slide img');
 
 //counter
 let counter = 0;
-const size = imgImages[0].clientWidth;
+let size = imgImages[0].clientWidth;
 
 // submit onClick
 const answerInput = document.querySelector('.answer-input');
@@ -57,7 +57,6 @@ const objConstuctor = (problemIndex, problemAnswerValue) => {
 const probBtnColorizer = () => {
   //check answered problems
   for (let i = 0; i < 20; i++) {
-    // console.log(answerObj.answersArr[i].problemAnswerValue === '');
     let x;
     try {
       x = answerObj.answersArr[i].problemAnswerValue === '';
